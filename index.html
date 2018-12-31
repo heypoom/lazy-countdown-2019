@@ -20,9 +20,10 @@
 
 			.container h1 {
 				color: #fff;
-				font-size: 12em;
+				font-size: 20vw;
 				font-family: "ComicNeueAngularRegular","Helvetica Neue", sans-serif;
 				font-weight: 300;
+				margin: 0;
 			}
 
 			.container .critical {
@@ -93,7 +94,7 @@
 				var minutes = Math.floor((secs - (hours * 3600)) / 60);
 				var seconds = secs - (hours * 3600) - (minutes * 60);
 
-				document.querySelector('#countdown').innerHTML = hours + ":" + minutes + ":" + seconds;
+				document.querySelector('#countdown').innerHTML = hours.toFixed(0).padStart(2,'0') + ":" + minutes.toFixed(0).padStart(2,'0') + ":" + seconds.toFixed(0).padStart(2,'0');
 
 				// Happy New Year!
 				if (Date.now() >= NEW_YEAR) {
@@ -105,13 +106,8 @@
 				}
 
 				// 60 Seconds before New Year
-				if (sec <= 60) {
+				if (secs <= 60) {
 					document.querySelector('#countdown').className = 'critical'
-				}
-
-				// 30 Seconds before New Year
-				if (sec <= 30) {
-					// ...
 				}
 			}, 1000)
 

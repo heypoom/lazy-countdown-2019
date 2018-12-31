@@ -75,23 +75,23 @@
 
 				document.querySelector('#countdown').innerHTML = sec
 
-				// COUNTDOWN
-				if (sec <= 60) {
-					document.querySelector('#countdown').className = 'critical'
-
-					return
-				}
-
-				if (sec <= 30) {
-					// ...
-				}
-
+				// Happy New Year!
 				if (Date.now() >= NEW_YEAR) {
 					clearInterval(timer)
 
 					itsNewYear()
 
 					return
+				}
+
+				// 60 Seconds before New Year
+				if (sec <= 60) {
+					document.querySelector('#countdown').className = 'critical'
+				}
+
+				// 30 Seconds before New Year
+				if (sec <= 30) {
+					// ...
 				}
 			}, 1000)
 			})

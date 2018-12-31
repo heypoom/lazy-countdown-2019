@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>Lazy Countdown</title>
+		<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/comic-neue" type="text/css"/>
 		<style type="text/css" media="screen">
 			.container {
 				display: flex;
@@ -14,7 +15,7 @@
 
 			.container h1 {
 				font-size: 12em;
-				font-family: "Helvetica Neue", sans-serif;
+				font-family: "ComicNeueAngularRegular","Helvetica Neue", sans-serif;
 				font-weight: 300;
 			}
 
@@ -71,9 +72,13 @@
 
 			window.timer = setInterval(function() {
 				var ms = NEW_YEAR - Date.now()
-				var sec = Math.floor(ms / 1000)
+				var secs = Math.floor(ms / 1000)
 
-				document.querySelector('#countdown').innerHTML = sec
+				var hours   = Math.floor(secs / 3600);
+				var minutes = Math.floor((secs - (hours * 3600)) / 60);
+				var seconds = secs - (hours * 3600) - (minutes * 60);
+
+				document.querySelector('#countdown').innerHTML = hours + ":" + minutes + ":" + seconds;
 
 				// Happy New Year!
 				if (Date.now() >= NEW_YEAR) {

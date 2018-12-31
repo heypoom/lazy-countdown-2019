@@ -78,6 +78,9 @@
 				var minutes = Math.floor((secs - (hours * 3600)) / 60);
 				var seconds = secs - (hours * 3600) - (minutes * 60);
 
+				if (seconds < 10) seconds = '0' + seconds
+				if (minutes < 10) minutes = '0' + minutes
+
 				document.querySelector('#countdown').innerHTML = hours + ":" + minutes + ":" + seconds;
 
 				// Happy New Year!

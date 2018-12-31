@@ -6,6 +6,11 @@
 		<title>Lazy Countdown</title>
 		<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/comic-neue" type="text/css"/>
 		<style type="text/css" media="screen">
+			body {
+				margin: 0;
+				background-color: #000;
+			}
+
 			.container {
 				display: flex;
 				align-items: center;
@@ -14,6 +19,7 @@
 			}
 
 			.container h1 {
+				color: #fff;
 				font-size: 20vw;
 				font-family: "ComicNeueAngularRegular","Helvetica Neue", sans-serif;
 				font-weight: 300;
@@ -24,7 +30,16 @@
 				color: #FF5355;
 				font-weight: bold;
 			}
+
+			canvas{
+				background-color: transparent;
+				z-index: -1;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
 		</style>
+		<script src="firework.js"></script>
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
 				console.log('Loaded')
@@ -66,7 +81,7 @@
 
 				countdown.style.display = 'none'
 
-				newYear.style.display = 'flex'
+				newYear.style.display = 'block'
 
 				createAudio()
 			}
@@ -95,13 +110,17 @@
 					document.querySelector('#countdown').className = 'critical'
 				}
 			}, 1000)
+
+			var controller = new Controller()
+			controller.init()
+			requestAnimationFrame(controller.animation)
 			})
 		</script>
 	</head>
 	<body>
 		<div class="container">
 			<h1 id="countdown"></h1>
-			<div id="newyear" style="display: none;"></div>
 		</div>
+		<canvas id="newyear" style="display: none;"></canvas>
 	</body>
 </html>

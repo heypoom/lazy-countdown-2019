@@ -26,6 +26,10 @@
 				margin: 0;
 			}
 
+			#newYearText {
+				font-size: 5vw;
+			}
+
 			.container .critical {
 				color: #FF5355;
 				font-weight: bold;
@@ -47,6 +51,7 @@
 			var container = document.querySelector('.container')
 			var countdown = document.querySelector('#countdown')
 			var newYear = document.querySelector('#newyear')
+			var newYearText = document.querySelector('#newYearText')
 
 			var NEW_YEAR = 15462756e5
 
@@ -82,6 +87,8 @@
 				countdown.style.display = 'none'
 
 				newYear.style.display = 'block'
+
+				newYearText.style.display = 'block'
 
 				createAudio()
 			}
@@ -120,6 +127,7 @@
 	<body>
 		<div class="container">
 			<h1 id="countdown"></h1>
+			<h1 id="newYearText" style="display: none;">Happy New Year 2019 🎉</h1>
 		</div>
 		<canvas id="newyear" style="display: none;"></canvas>
 	</body>

@@ -4,8 +4,71 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>Lazy Countdown</title>
+		<style type="text/css" media="screen">
+			.container {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 100vh;
+			}
+
+			.container h1 {
+				font-size: 12em;
+				font-family: "Helvetica Neue", sans-serif;
+				font-weight: 300;
+			}
+
+			.container .critical {
+				color: #FF5355;
+				font-weight: bold;
+			}
+		</style>
+		<script>
+			var NEW_YEAR = 15462756e5
+
+			var countdown = document.querySelector('#countdown')
+
+			var newYear = document.querySelector('#newyear')
+
+			function itsNewYear() {
+				// TODO: Put Fireworks Here
+
+				countdown.style.display = 'none'
+
+				newYear.style.display = 'flex'
+			}
+
+			var timer = setInterval(function() {
+				var ms = NEW_YEAR - Date.now()
+				var sec = Math.floor(ms / 1000)
+
+				// COUNTDOWN
+				if (sec < 60) {
+					// TODO: Put it some music
+
+					document.querySelector('#countdown').className = 'critical'
+
+					return
+				}
+
+				if (Date.now() >= NEW_YEAR) {
+					clearInterval(timer)
+
+					itsNewYear()
+
+					return
+				}
+
+				document.querySelector('#countdown').innerHTML = sec
+			}, 1000)
+		</script>
 	</head>
 	<body>
-		<h1>Lazy Countdown lah</h1>
+		<div class="container">
+			<h1 id="countdown"></h1>
+			<div id="newyear" style="display: none;">
+
+			</div>
+		</div>
 	</body>
 </html>

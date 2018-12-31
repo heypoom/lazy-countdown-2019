@@ -18,11 +18,18 @@
 				font-family: "ComicNeueAngularRegular","Helvetica Neue", sans-serif;
 				font-weight: 300;
 			}
+			
+@media only screen and (min-width: 33.75em) {  /* 540px */
+  .container h1 {
+    font-size: 7em;
+  }
+}
 
-			.container .critical {
-				color: #FF5355;
-				font-weight: bold;
-			}
+@media only screen and (min-width: 45em) {  /* 720px */
+  .container h1 {
+    font-size: 9em;
+  }
+}
 		</style>
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {

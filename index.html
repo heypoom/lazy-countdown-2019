@@ -71,7 +71,13 @@
 
 			window.timer = setInterval(function() {
 				var ms = NEW_YEAR - Date.now()
-				var sec = Math.floor(ms / 1000)
+				var secs = Math.floor(ms / 1000)
+
+				var hours   = Math.floor(secs / 3600);
+				var minutes = Math.floor((secs - (hours * 3600)) / 60);
+				var seconds = secs - (hours * 3600) - (minutes * 60);
+
+				document.querySelector('#countdown').innerHTML = hours + ":" + minutes + ":" + seconds;
 
 				document.querySelector('#countdown').innerHTML = sec
 
